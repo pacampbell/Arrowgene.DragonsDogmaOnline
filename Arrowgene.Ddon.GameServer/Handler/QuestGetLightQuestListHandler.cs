@@ -20,20 +20,22 @@ namespace Arrowgene.Ddon.GameServer.Handler
         public override void Handle(GameClient client, StructurePacket<C2SQuestGetLightQuestListReq> packet)
         {
             S2CQuestGetLightQuestListRes res = new S2CQuestGetLightQuestListRes();
-            foreach (var questId in client.Party.QuestState.GetActiveQuestIds())
+
+            var activeQuests = client.Party.QuestState.GetActiveQuestIds();
+            var quests = QuestManager.GetQuestsByType(QuestType.Light);
+            foreach (var quest in quests)
             {
-                var quest = QuestManager.GetQuest(questId);
-                if (quest.QuestType == QuestType.Light)
+                if (activeQuests.Contains(quest.Key))
                 {
-                    res.LightQuestList.Add(new CDataLightQuestList()
-                    {
-                        Param = new CDataQuestList()
-                        {
-                            QuestScheduleId = (uint)questId,
-                            QuestId = (uint)questId
-                        }
-                    });
+                    continue;
                 }
+
+                if (!QuestManager.IsBoardQuest(quest.Key))
+                {
+                    continue;
+                }
+
+                res.LightQuestList.Add(quest.Value.ToCDataLightQuestList(0));
             }
 
             client.Send(res);

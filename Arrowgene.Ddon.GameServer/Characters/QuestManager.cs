@@ -85,6 +85,16 @@ namespace Arrowgene.Ddon.GameServer.Characters
             return GetQuest((QuestId)questId);
         }
 
+        public static bool IsBoardQuest(QuestId questId)
+        {
+            return (((uint)questId) >= 40000000) && (((uint)questId) < 50000000);
+        }
+
+        public static bool IsWorldQuest(QuestId questId)
+        {
+            return (((uint)questId) >= 20000000) && (((uint)questId) < 30000000);
+        }
+
         public class LayoutFlag
         {
             public static CDataQuestLayoutFlagSetInfo Create(uint layoutFlag, StageNo stageNo, uint groupId)

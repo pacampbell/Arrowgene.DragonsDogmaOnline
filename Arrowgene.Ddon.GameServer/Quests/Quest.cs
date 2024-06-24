@@ -98,7 +98,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
             Processes = new List<QuestProcess>();
         }
 
-        private List<CDataQuestProcessState> GetProcessState(uint step, out uint announceNoCount)
+        private List<CDataQuestProcessState> GetProcessState(uint step, out uint announceNoCount, bool stripCommands)
         {
             Dictionary<QuestFlagType, Dictionary<int, QuestFlag>> questFlags = new Dictionary<QuestFlagType, Dictionary<int, QuestFlag>>();
             List<CDataQuestProcessState> result = new List<CDataQuestProcessState>();
@@ -169,15 +169,18 @@ namespace Arrowgene.Ddon.GameServer.Quests
             }
 
             // Eliminate any announce or free item steps when resuming a quest.
-            foreach (var processState in result)
+            if (stripCommands)
             {
-                // Make copy of the result commands
-                processState.ResultCommandList = processState.ResultCommandList
-                    .Where(x => x.Command != (ushort)QuestResultCommand.UpdateAnnounce &&
-                                x.Command != (ushort)QuestResultCommand.SetAnnounce &&
-                                x.Command != (ushort)QuestResultCommand.HandItem &&
-                                x.Command != (ushort)QuestResultCommand.PushImteToPlBag)
-                    .ToList();
+                foreach (var processState in result)
+                {
+                    // Make copy of the result commands
+                    processState.ResultCommandList = processState.ResultCommandList
+                        .Where(x => x.Command != (ushort)QuestResultCommand.UpdateAnnounce &&
+                                    x.Command != (ushort)QuestResultCommand.SetAnnounce &&
+                                    x.Command != (ushort)QuestResultCommand.HandItem &&
+                                    x.Command != (ushort)QuestResultCommand.PushImteToPlBag)
+                        .ToList();
+                }
             }
 
             // Generate a block that replays all the flags that got set and cleared
@@ -205,7 +208,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
             return result;
         }
 
-        public virtual CDataQuestList ToCDataQuestList(uint step)
+        public virtual CDataQuestList ToCDataQuestList(uint step, bool stripCommands = true)
         {
             var quest = new CDataQuestList()
             {
@@ -222,7 +225,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
                 QuestOrderConditionParamList = GetQuestOrderConditions(),
             };
 
-            quest.QuestProcessStateList = GetProcessState(step, out uint announceNoCount);
+            quest.QuestProcessStateList = GetProcessState(step, out uint announceNoCount, stripCommands);
 
             foreach (var questLayoutFlag in QuestLayoutFlags)
             {
@@ -237,7 +240,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
             return quest;
         }
 
-        public virtual CDataQuestOrderList ToCDataQuestOrderList(uint step)
+        public virtual CDataQuestOrderList ToCDataQuestOrderList(uint step, bool stripCommands = true)
         {
             var quest = new CDataQuestOrderList()
             {
@@ -255,7 +258,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
                 QuestOrderConditionParam = GetQuestOrderConditions(),
             };
 
-            quest.QuestProcessStateList = GetProcessState(step, out uint announceNoCount);
+            quest.QuestProcessStateList = GetProcessState(step, out uint announceNoCount, stripCommands);
 
             for (uint i = 0; i < announceNoCount; i++)
             {
@@ -275,17 +278,17 @@ namespace Arrowgene.Ddon.GameServer.Quests
             return quest;
         }
 
-        public virtual CDataTutorialQuestOrderList ToCDataTutorialQuestOrderList(uint step)
+        public virtual CDataTutorialQuestOrderList ToCDataTutorialQuestOrderList(uint step, bool stripCommands = true)
         {
             return new CDataTutorialQuestOrderList()
             {
-                Param = ToCDataQuestOrderList(step)
+                Param = ToCDataQuestOrderList(step, stripCommands)
             };
         }
 
-        public virtual CDataPriorityQuest ToCDataPriorityQuest(uint step)
+        public virtual CDataPriorityQuest ToCDataPriorityQuest(uint step, bool stripCommands = true)
         {
-            var questProcessStateList = GetProcessState(step, out uint announceNoCount);
+            var questProcessStateList = GetProcessState(step, out uint announceNoCount, stripCommands);
 
             var result = new CDataPriorityQuest()
             {
@@ -302,12 +305,41 @@ namespace Arrowgene.Ddon.GameServer.Quests
             return result;
         }
 
-        public virtual CDataMainQuestList ToCDataMainQuestList(uint step)
+        public virtual CDataMainQuestList ToCDataMainQuestList(uint step, bool stripCommands = true)
         {
             return new CDataMainQuestList()
             {
-                Param = ToCDataQuestList(step)
+                Param = ToCDataQuestList(step, stripCommands)
             };
+        }
+
+        public virtual CDataLightQuestList ToCDataLightQuestList(uint step, bool stripCommands = true)
+        {
+            var result = new CDataLightQuestList()
+            {
+                Param = ToCDataQuestList(step, stripCommands),
+                Contents = new CDataQuestContents()
+                {
+                    Type = 2,
+                    Param01 = 0x011200,
+                    Param02 = 2,
+                    Param03 = 2,
+                    Param04 = 0,
+                    Unk0 = 6,
+                    Unk1 = 6,
+                },
+                Detail = new CDataLightQuestDetail()
+                {
+                    AreaId = (uint) QuestAreaId.HidellPlains,
+                    BaseAreaPoint = 25,
+                    BoardType = 2, // 1 == Normal, 2 == Clan?
+                    OrderLimit = 25,
+                    ClearNum = 0,
+                    GetCP = 25 // This is reward area points
+                }
+            };
+
+            return result;
         }
 
         public abstract List<CDataQuestProcessState> StateMachineExecute(DdonGameServer server, GameClient client, QuestProcessState processState, out QuestProgressState questProgressState);

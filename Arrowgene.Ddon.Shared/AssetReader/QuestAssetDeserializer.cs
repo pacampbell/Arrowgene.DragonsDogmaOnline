@@ -13,6 +13,7 @@ using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.RegularExpressions;
 using System.Text.Json.Nodes;
+using static Arrowgene.Ddon.Shared.Csv.GmdCsv;
 
 namespace Arrowgene.Ddon.Shared.AssetReader
 {
@@ -482,6 +483,13 @@ namespace Arrowgene.Ddon.Shared.AssetReader
                             {
                                 questBlock.EnemyGroupIds.Add(groupId.GetUInt32());
                             }
+                        }
+                        break;
+                    case QuestBlockType.KillTargetEnemies:
+                        {
+                            questBlock.TargetEnemy.EnemyId = Convert.ToUInt32(jblock.GetProperty("enemy_id").GetString(), 16);
+                            questBlock.TargetEnemy.Level = jblock.GetProperty("level").GetUInt32();
+                            questBlock.TargetEnemy.Amount = jblock.GetProperty("amount").GetUInt32();
                         }
                         break;
                     case QuestBlockType.TalkToNpc:

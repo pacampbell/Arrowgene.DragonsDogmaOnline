@@ -340,6 +340,12 @@ namespace Arrowgene.Ddon.GameServer.Quests
                         }
                     }
                     break;
+                case QuestBlockType.KillTargetEnemies:
+                    {
+                        // Handles kill x amount of monster type quests
+                        checkCommands.Add(QuestManager.CheckCommand.EmDieLight((int) questBlock.TargetEnemy.EnemyId, (int) questBlock.TargetEnemy.Level, (int) questBlock.TargetEnemy.Amount));
+                    }
+                    break;
                 case QuestBlockType.CollectItem:
                     {
                         var questCommand = questBlock.ShowMarker ?

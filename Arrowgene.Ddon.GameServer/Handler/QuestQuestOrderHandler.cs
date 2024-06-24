@@ -28,10 +28,18 @@ namespace Arrowgene.Ddon.GameServer.Handler
             QuestId questId = (QuestId)packet.Structure.QuestScheduleId;
             if (client.Party.QuestState.GetActiveQuestIds().Contains(questId))
             {
-                var quest = QuestManager.GetQuest(questId);
-                var questState = client.Party.QuestState.GetQuestState(questId);
-                res.QuestProcessStateList = quest.ToCDataQuestList(questState.Step).QuestProcessStateList;
+                // return an error?
+                client.Send(new S2CQuestQuestOrderRes()
+                {
+                    Error = (uint) ErrorCode.ERROR_CODE_QUEST_ADD_ITEM_FAILED
+                });
+                return;
             }
+
+            var quest = QuestManager.GetQuest(questId);
+            res.QuestProcessStateList = quest.ToCDataQuestList(0, false).QuestProcessStateList;
+            client.Party.QuestState.AddNewQuest(quest, 0);
+            Server.Database.InsertQuestProgress(client.Character.CommonId, quest.QuestId, quest.QuestType, 0);
 
             client.Send(res);
         }

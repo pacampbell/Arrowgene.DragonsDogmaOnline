@@ -31,6 +31,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
 
         public QuestPartyGatherPoint PartyGatherPoint {  get; set; }
         public QuestOmInteractEvent OmInteractEvent { get; set; }
+        public QuestTargetEnemy TargetEnemy {  get; set; }
 
         public bool ShowMarker { get; set; }
         public bool ResetGroup { get; set; }
@@ -71,6 +72,7 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             QuestEvent = new QuestEvent();
             QuestCameraEvent = new QuestCameraEvent();
             OmInteractEvent = new QuestOmInteractEvent();
+            TargetEnemy = new QuestTargetEnemy();
         }
     }
 }
