@@ -98,22 +98,22 @@ namespace Arrowgene.Ddon.GameServer.Characters
 
             switch (upgrade.GainType)
             {
-                case OrbGainParamType.HpMax:
+                case OrbGainParamType.AllJobsHpMax:
                     obj.HpMax += (ushort)upgrade.Amount;
                     break;
-                case OrbGainParamType.StaminaMax:
+                case OrbGainParamType.AllJobsStaminaMax:
                     obj.StaminaMax += (ushort)upgrade.Amount;
                     break;
-                case OrbGainParamType.PhysicalAttack:
+                case OrbGainParamType.AllJobsPhysicalAttack:
                     obj.Attack += (ushort)upgrade.Amount;
                     break;
-                case OrbGainParamType.PhysicalDefence:
+                case OrbGainParamType.AllJobsPhysicalDefence:
                     obj.Defence += (ushort)upgrade.Amount;
                     break;
-                case OrbGainParamType.MagicalAttack:
+                case OrbGainParamType.AllJobsMagicalAttack:
                     obj.MagicAttack += (ushort)upgrade.Amount;
                     break;
-                case OrbGainParamType.MagicalDefence:
+                case OrbGainParamType.AllJobsMagicalDefence:
                     obj.MagicDefence += (ushort)upgrade.Amount;
                     break;
                 case OrbGainParamType.AbilityCost:
@@ -167,11 +167,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
 
             switch (upgrade.GainType)
             {
-                case OrbGainParamType.HpMax:
-                case OrbGainParamType.StaminaMax:
-                case OrbGainParamType.PhysicalAttack:
-                case OrbGainParamType.PhysicalDefence:
-                case OrbGainParamType.MagicalAttack:
+                case OrbGainParamType.AllJobsHpMax:
+                case OrbGainParamType.AllJobsStaminaMax:
+                case OrbGainParamType.AllJobsPhysicalAttack:
+                case OrbGainParamType.AllJobsPhysicalDefence:
+                case OrbGainParamType.AllJobsMagicalAttack:
                 case OrbGainParamType.AccessorySlot:
                     _CharacterManager.UpdateCharacterExtendedParamsNtc(client, character);
                     break;
@@ -490,20 +490,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x03] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(8)
-                .Unlocks(OrbGainParamType.HpMax, 100),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 100),
             [0x04] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(4)
-                .Unlocks(OrbGainParamType.MagicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 5),
             [0x05] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(1)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 5),
 
             [0x15] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(10)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x16] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(70)
@@ -511,27 +511,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x17] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(10)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x18] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x19] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(70)
-                .Unlocks(OrbGainParamType.HpMax, 60),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 60),
             [0x1a] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(40)
-                .Unlocks(OrbGainParamType.StaminaMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 40),
             [0x1b] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(50)
-                .Unlocks(OrbGainParamType.HpMax, 60),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 60),
             [0x1c] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
 
             [0x1d] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group2, 1)
@@ -569,27 +569,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x25] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.MagicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 1),
             [0x26] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x27] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0x28] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(40)
-                .Unlocks(OrbGainParamType.StaminaMax, 35),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 35),
             [0x29] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0x2a] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x2b] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(50)
@@ -597,32 +597,32 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x2c] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
 
             [0x2d] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 1),
             [0x2e] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x2f] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x30] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(40)
-                .Unlocks(OrbGainParamType.StaminaMax, 35),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 35),
             [0x31] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x32] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x33] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(50)
@@ -630,7 +630,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x34] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3),
 
             #endregion
 
@@ -647,20 +647,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x08] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(24)
-                .Unlocks(OrbGainParamType.HpMax, 100),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 100),
             [0x09] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(20)
-                .Unlocks(OrbGainParamType.MagicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 5),
             [0x0a] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(16)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 5),
 
             [0x35] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(170)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x36] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(220)
@@ -668,27 +668,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x37] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x38] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(150)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x39] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(250)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x3a] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(150)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0x3b] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(200)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0x3c] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
 
             [0x3d] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group2, 1)
@@ -726,27 +726,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x45] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x46] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(90)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x47] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(160)
-                .Unlocks(OrbGainParamType.MagicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 3),
             [0x48] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(130)
-                .Unlocks(OrbGainParamType.StaminaMax, 25),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 25),
             [0x49] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.MagicalDefence, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 1),
             [0x4a] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(150)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x4b] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(200)
@@ -754,32 +754,32 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x4c] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(160)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
 
             [0x4d] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x4e] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(90)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x4f] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(160)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 3),
             [0x50] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(130)
-                .Unlocks(OrbGainParamType.StaminaMax, 25),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 25),
             [0x51] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 1),
             [0x52] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(150)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x53] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(200)
@@ -787,7 +787,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x54] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(160)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
 
             #endregion
 
@@ -804,20 +804,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x0d] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(40)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x0e] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(36)
-                .Unlocks(OrbGainParamType.MagicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 5),
             [0x0f] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(32)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 5),
 
             [0x55] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x56] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(1000)
@@ -825,27 +825,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x57] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(520)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x58] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(550)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x59] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(600)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0x5a] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(700)
-                .Unlocks(OrbGainParamType.StaminaMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 40),
             [0x5b] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(800)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x5c] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
 
             [0x5d] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group2, 1)
@@ -883,27 +883,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x65] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(300)
-                .Unlocks(OrbGainParamType.MagicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 1),
             [0x66] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(480)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x67] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0x68] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(580)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x69] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(600)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
             [0x6a] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x6b] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(750)
@@ -911,32 +911,32 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x6c] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(550)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
 
             [0x6d] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(300)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 1),
             [0x6e] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(480)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x6f] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x70] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(580)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x71] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(600)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3),
             [0x72] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x73] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(750)
@@ -944,7 +944,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x74] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(550)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
 
             #endregion
 
@@ -961,20 +961,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x12] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(56)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x13] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(52)
-                .Unlocks(OrbGainParamType.MagicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 5),
             [0x14] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(48)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 5),
 
             [0x75] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x76] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(5000)
@@ -982,27 +982,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x77] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0x78] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x79] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0x7a] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0x7b] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(2500)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x7c] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
 
             [0x7d] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group2, 1)
@@ -1040,15 +1040,15 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x85] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x86] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(2300)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x87] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.MagicalAttack, 4),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 4),
             [0x88] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(3000)
@@ -1056,32 +1056,32 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x89] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0x8a] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.MagicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 3),
             [0x8b] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x8c] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
 
             [0x8d] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x8e] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(2300)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x8f] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 4),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 4),
             [0x90] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(3000)
@@ -1089,19 +1089,19 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x91] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x92] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 3),
             [0x93] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x94] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(1800)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3)
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3)
 
             #endregion
         };
@@ -1121,20 +1121,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x97] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(8)
-                .Unlocks(OrbGainParamType.HpMax, 100),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 100),
             [0x98] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(4)
-                .Unlocks(OrbGainParamType.MagicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 5),
             [0x99] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(1)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 5),
 
             [0xa9] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(10)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0xaa] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(30)
@@ -1142,27 +1142,27 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xab] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(10)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xac] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0xad] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(40)
-                .Unlocks(OrbGainParamType.HpMax, 60),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 60),
             [0xae] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0xaf] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(40)
-                .Unlocks(OrbGainParamType.HpMax, 60),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 60),
             [0xb0] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
 
             [0xb1] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group2, 1)
@@ -1200,68 +1200,68 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xb9] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.MagicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 1),
             [0xba] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xbb] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0xbc] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xbd] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0xbe] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0xbf] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xc0] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
 
             [0xc1] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 1),
             [0xc2] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xc3] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(15)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0xc4] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xc5] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(20)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0xc6] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(30)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0xc7] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xc8] = new DragonForceUpgrade()
                 .Location(PageNo.Page1, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(25)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3),
 
             #endregion
 
@@ -1278,20 +1278,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x9c] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(24)
-                .Unlocks(OrbGainParamType.HpMax, 100),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 100),
             [0x9d] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(20)
-                .Unlocks(OrbGainParamType.MagicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 5),
             [0x9e] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(16)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 5),
 
             [0xc9] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(80)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0xca] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(180)
@@ -1299,23 +1299,23 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xcb] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(70)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xcc] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(85)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0xcd] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0xce] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0xcf] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0xd0] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(180)
@@ -1357,68 +1357,68 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xd9] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(70)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0xda] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(80)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0xdb] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.MagicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 3),
             [0xdc] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(130)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xdd] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(60)
-                .Unlocks(OrbGainParamType.MagicalDefence, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 1),
             [0xde] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0xdf] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(80)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0xe0] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
 
             [0xe1] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(70)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0xe2] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(80)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0xe3] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(120)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 3),
             [0xe4] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(130)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xe5] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(60)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 1),
             [0xe6] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0xe7] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(80)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0xe8] = new DragonForceUpgrade()
                 .Location(PageNo.Page2, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(100)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
 
             #endregion
 
@@ -1435,20 +1435,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xa1] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(40)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0xa2] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(36)
-                .Unlocks(OrbGainParamType.MagicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 5),
             [0xa3] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(32)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 5),
 
             [0xe9] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(350)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0xea] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(520)
@@ -1456,15 +1456,15 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xeb] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(480)
-                .Unlocks(OrbGainParamType.StaminaMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 30),
             [0xec] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(400)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0xed] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0xee] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(380)
@@ -1472,11 +1472,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xef] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(600)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0xf0] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(380)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
 
             [0xf1] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group2, 1)
@@ -1514,69 +1514,68 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xf9] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(280)
-                .Unlocks(OrbGainParamType.MagicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 1),
             [0xfa] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(320)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0xfb] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(400)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0xfc] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(380)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0xfd] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(420)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0xfe] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(450)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0xff] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(320)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x100] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
 
             [0x101] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(280)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 1),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 1),
             [0x102] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(320)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x103] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(400)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x104] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(380)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x105] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(420)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x106] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(450)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x107] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(320)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x108] = new DragonForceUpgrade()
                 .Location(PageNo.Page3, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(500)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3),
-
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3),
             #endregion
 
             #region PAGE4
@@ -1592,20 +1591,20 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0xa6] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 3)
                 .HasTotalLevelsRestriction(56)
-                .Unlocks(OrbGainParamType.HpMax, 80),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 80),
             [0xa7] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 4)
                 .HasTotalLevelsRestriction(52)
-                .Unlocks(OrbGainParamType.MagicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 5),
             [0xa8] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group5, 5)
                 .HasTotalLevelsRestriction(48)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 5),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 5),
 
             [0x109] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 1)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.HpMax, 30),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 30),
             [0x10a] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 2)
                 .HasOrbUnlockRestriction(1750)
@@ -1613,7 +1612,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x10b] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 3)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.StaminaMax, 25),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 25),
             [0x10c] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 4)
                 .HasOrbUnlockRestriction(2000)
@@ -1621,7 +1620,7 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x10d] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 5)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.HpMax, 40),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 40),
             [0x10e] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 6)
                 .HasOrbUnlockRestriction(2250)
@@ -1629,11 +1628,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x10f] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 7)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.HpMax, 50),
+                .Unlocks(OrbGainParamType.AllJobsHpMax, 50),
             [0x110] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group1, 8)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.StaminaMax, 25),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 25),
 
             [0x111] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group2, 1)
@@ -1671,68 +1670,68 @@ namespace Arrowgene.Ddon.GameServer.Characters
             [0x119] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 1)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.MagicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 2),
             [0x11a] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 2)
                 .HasOrbUnlockRestriction(1000)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x11b] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 3)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.MagicalAttack, 4),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 4),
             [0x11c] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 4)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x11d] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 5)
                 .HasOrbUnlockRestriction(1300)
-                .Unlocks(OrbGainParamType.MagicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 2),
             [0x11e] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 6)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.MagicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalAttack, 3),
             [0x11f] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 7)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x120] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group3, 8)
                 .HasOrbUnlockRestriction(1600)
-                .Unlocks(OrbGainParamType.MagicalDefence, 3),
+                .Unlocks(OrbGainParamType.AllJobsMagicalDefence, 3),
 
             [0x121] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 1)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 2),
             [0x122] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 2)
                 .HasOrbUnlockRestriction(1000)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x123] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 3)
                 .HasOrbUnlockRestriction(2000)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 4),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 4),
             [0x124] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 4)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.StaminaMax, 20),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 20),
             [0x125] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 5)
                 .HasOrbUnlockRestriction(1300)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 2),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 2),
             [0x126] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 6)
                 .HasOrbUnlockRestriction(1500)
-                .Unlocks(OrbGainParamType.PhysicalAttack, 3),
+                .Unlocks(OrbGainParamType.AllJobsPhysicalAttack, 3),
             [0x127] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 7)
                 .HasOrbUnlockRestriction(1250)
-                .Unlocks(OrbGainParamType.StaminaMax, 15),
+                .Unlocks(OrbGainParamType.AllJobsStaminaMax, 15),
             [0x128] = new DragonForceUpgrade()
                 .Location(PageNo.Page4, GroupNo.Group4, 8)
                 .HasOrbUnlockRestriction(1600)
-                .Unlocks(OrbGainParamType.PhysicalDefence, 3)
+                .Unlocks(OrbGainParamType.AllJobsPhysicalDefence, 3)
 
             #endregion
         };

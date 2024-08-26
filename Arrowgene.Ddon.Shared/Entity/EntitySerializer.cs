@@ -169,6 +169,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new CDataJobBaseInfo.Serializer());
             Create(new CDataJobOrbTreeStatus.Serializer());
             Create(new CDataJobOrbDevoteElement.Serializer());
+            Create(new CDataJobOrbDevoteElementUnk0.Serializer());
             Create(new CDataReleaseOrbElement.Serializer());
             Create(new CDataJobExpMode.Serializer());
             Create(new CDataJobPlayPointSerializer());

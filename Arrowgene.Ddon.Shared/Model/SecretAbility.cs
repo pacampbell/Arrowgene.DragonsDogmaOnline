@@ -73,6 +73,18 @@ namespace Arrowgene.Ddon.Shared.Model
         MusicFighter           = 293,
         MusicWily              = 294,
         MusicGoblins           = 295,
+
+        OnslaughtSlayer        = 296,
+        DemolishingStrikeSlayer = 297,
+        CrushingBlow           = 298,
+        GougeEradicate         = 299,
+        DireOnslaughtSlayer    = 300,
+        FirmShield             = 301,
+        ArcherySlayer          = 308,
+        ExplodingArrowFury     = 309,
+        RigidStance            = 310,
+        ArrowheadStrikeFury    = 311,
+
         CompanionHealth        = 441,
         CompanionStamina       = 442,
         CompanionAttack        = 443,
@@ -96,6 +108,12 @@ namespace Arrowgene.Ddon.Shared.Model
         Myrmidon               = 461,
         Inquiry                = 462,
         Purge                  = 463,
-        NightEmperor           = 464
+        NightEmperor           = 464,
+        OrdinaryAttack         = 497,
+        QuadrupleSlash         = 499,
+        ArcSlashSlayer         = 500,
+        FallingSlashSlayer     = 501,
+        SkySlashSlayer         = 502,
+        Respiration            = 504,
     }
 }

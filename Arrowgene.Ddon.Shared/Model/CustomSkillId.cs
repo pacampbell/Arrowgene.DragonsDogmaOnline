@@ -1,0 +1,185 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Arrowgene.Ddon.Shared.Model
+{
+    public enum CustomSkillId : uint
+    {
+        None = 0,
+        // Fighter
+        BlinkStrike = 8,
+        Downthrust = 9, 
+        CymbalAttack = 10, 
+        ShelteredSpike = 11, 
+        TuskToss = 12, 
+        SkywardLash = 13, 
+        CompassSlash = 14, 
+        HindsightSlash = 15, 
+        IntimateStrike = 16,
+        BravesRaid = 17, 
+        MovingCastle = 18, 
+        FlowingSwordFlash = 19, 
+        PierceSlash = 120, 
+        FlowingShieldSpiral = 121, 
+        TuskTossP = 154, 
+        TuskTossT = 155, 
+        CymbalAttackP = 174, 
+        CymbalAttackT = 175, 
+        DownthrustP = 209, 
+        DownthrustT = 210, 
+        SkywardLashP = 211, 
+        SkywardLashT = 212,
+        // Hunter
+        ThreefoldArrow = 32,
+        TriadShot = 33,
+        FlyingDin = 34,
+        FullBend = 35,
+        CloudburstVolley = 36,
+        PunctureDart = 37,
+        WhirlingArrow = 38,
+        CrimsonArrow = 39,
+        ExplosiveArrowVolley = 40,
+        StormArrow = 41,
+        BackwardRetreat = 42,
+        DemonArrow = 43,
+        SkyBurstShot = 131,
+        CombinedPierceShot = 132,
+        ThreefoldArrowP = 162,
+        ThreefoldArrowT = 163,
+        WhirlingArrowP = 164,
+        WhirlingArrowT = 165,
+        FullBendP = 197,
+        FullBendT = 198,
+        ExplosiveArrowVolleyP = 199,
+        ExplosiveArrowVolleyT = 200,
+        // Warrior
+        UpwardStrike = 80,
+        PommelStrike = 81,
+        SavageLunge = 82,
+        EscapeSlash = 83,
+        SparkSlash = 84,
+        DevilBurst = 85,
+        Clarity = 86,
+        HeavenThrust = 87,
+        AnnihilatorsWindSlash = 88,
+        GreatWindmill = 89,
+        DefensiveStance = 90,
+        FlyingDragonCrash = 91,
+        GreatGougingFang = 139,
+        EarthquakeFang = 140,
+        SavageLungeP = 180,
+        SavageLungeT = 181,
+        PommelStrikeP = 182,
+        PommelStrikeT = 183,
+        EscapeSlashP = 225,
+        EscapeSlashT = 226,
+        SparkSlashP = 227,
+        SparkSlashT = 228,
+        // High Scepter
+        FullMoonLight = 237,
+        WallBarrier = 238,
+        EclipseBright = 239,
+        BlackFlashFang = 240,
+        MirageShift = 241,
+        TerrorBlast = 242,
+        PhantomEdge = 243,
+        DimSlice = 244,
+    }
+
+    public static class CustomSkillIdMethods
+    {
+        public static uint GetCustomSkillRelativeMapping(this CustomSkillId skillId)
+        {
+            if (!gRelativeCustomSkillMapping.ContainsKey(skillId))
+            {
+                return 0;
+            }
+            return gRelativeCustomSkillMapping[skillId];
+        }
+
+        private static readonly Dictionary<CustomSkillId, uint> gRelativeCustomSkillMapping = new Dictionary<CustomSkillId, uint>()
+        {
+            // Fighter
+            [CustomSkillId.BlinkStrike] = 1,
+            [CustomSkillId.Downthrust] = 2,
+            [CustomSkillId.CymbalAttack] = 3,
+            [CustomSkillId.ShelteredSpike] = 4,
+            [CustomSkillId.TuskToss] = 5,
+            [CustomSkillId.SkywardLash] = 6,
+            [CustomSkillId.CompassSlash] = 7,
+            [CustomSkillId.HindsightSlash] = 8,
+            [CustomSkillId.IntimateStrike] = 9,
+            [CustomSkillId.BravesRaid] = 10,
+            [CustomSkillId.MovingCastle] = 11,
+            [CustomSkillId.FlowingSwordFlash] = 12,
+            [CustomSkillId.PierceSlash] = 13,
+            [CustomSkillId.FlowingShieldSpiral] = 14,
+            [CustomSkillId.TuskTossP] = 15,
+            [CustomSkillId.TuskTossT] = 16,
+            [CustomSkillId.CymbalAttackP] = 17,
+            [CustomSkillId.CymbalAttackT] = 18,
+            [CustomSkillId.DownthrustP] = 19,
+            [CustomSkillId.DownthrustT] = 20,
+            [CustomSkillId.SkywardLashP] = 21,
+            [CustomSkillId.SkywardLashT] = 22,
+            // Hunter
+            [CustomSkillId.ThreefoldArrow] = 1,
+            [CustomSkillId.TriadShot] = 2,
+            [CustomSkillId.FlyingDin] = 3,
+            [CustomSkillId.FullBend] = 4,
+            [CustomSkillId.CloudburstVolley] = 5,
+            [CustomSkillId.PunctureDart] = 6,
+            [CustomSkillId.WhirlingArrow] = 7,
+            [CustomSkillId.CrimsonArrow] = 8,
+            [CustomSkillId.ExplosiveArrowVolley] = 9,
+            [CustomSkillId.StormArrow] = 10,
+            [CustomSkillId.BackwardRetreat] = 11,
+            [CustomSkillId.DemonArrow] = 12,
+            [CustomSkillId.SkyBurstShot] = 13,
+            [CustomSkillId.CombinedPierceShot] = 14,
+            [CustomSkillId.ThreefoldArrowP] = 15,
+            [CustomSkillId.ThreefoldArrowT] = 16,
+            [CustomSkillId.WhirlingArrowP] = 17,
+            [CustomSkillId.WhirlingArrowT] = 18,
+            [CustomSkillId.FullBendP] = 19,
+            [CustomSkillId.FullBendT] = 20,
+            [CustomSkillId.ExplosiveArrowVolleyP] = 21,
+            [CustomSkillId.ExplosiveArrowVolleyT] = 22,
+            // Warrior
+            [CustomSkillId.UpwardStrike] = 1,
+            [CustomSkillId.PommelStrike] = 2,
+            [CustomSkillId.SavageLunge] = 3,
+            [CustomSkillId.EscapeSlash] = 4,
+            [CustomSkillId.SparkSlash] = 5,
+            [CustomSkillId.DevilBurst] = 6,
+            [CustomSkillId.Clarity] = 7,
+            [CustomSkillId.HeavenThrust] = 8,
+            [CustomSkillId.AnnihilatorsWindSlash] = 9,
+            [CustomSkillId.GreatWindmill] = 10,
+            [CustomSkillId.DefensiveStance] = 11,
+            [CustomSkillId.FlyingDragonCrash] = 12,
+            [CustomSkillId.GreatGougingFang] = 13,
+            [CustomSkillId.EarthquakeFang] = 14,
+            [CustomSkillId.SavageLungeP] = 15,
+            [CustomSkillId.SavageLungeT] = 16,
+            [CustomSkillId.PommelStrikeP] = 17,
+            [CustomSkillId.PommelStrikeT] = 18,
+            [CustomSkillId.EscapeSlashP] = 19,
+            [CustomSkillId.EscapeSlashT] = 20,
+            [CustomSkillId.SparkSlashP] = 21,
+            [CustomSkillId.SparkSlashT] = 22,
+            // High Scepter
+            [CustomSkillId.FullMoonLight] = 1,
+            [CustomSkillId.WallBarrier] = 5,
+            [CustomSkillId.EclipseBright] = 7,
+            [CustomSkillId.BlackFlashFang] = 4,
+            [CustomSkillId.MirageShift] = 2,
+            [CustomSkillId.TerrorBlast] = 6,
+            [CustomSkillId.PhantomEdge] = 8,
+            [CustomSkillId.DimSlice] = 3,
+        };
+    }
+}
