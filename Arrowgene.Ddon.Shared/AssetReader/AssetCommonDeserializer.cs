@@ -173,7 +173,7 @@ namespace Arrowgene.Ddon.Shared.AssetReader
             return true;
         }
 
-        private void ApplyOptionalEnemyKeys(JsonElement enemy, Enemy questEnemey)
+        private void ApplyOptionalEnemyKeys(JsonElement enemy, InstancedEnemy questEnemey)
         {
             if (enemy.TryGetProperty("pp", out JsonElement jPpAmount))
             {
@@ -273,6 +273,15 @@ namespace Arrowgene.Ddon.Shared.AssetReader
             if (enemy.TryGetProperty("spawn_time_end", out JsonElement jSpawnTimeEnd))
             {
                 questEnemey.SpawnTimeEnd = jSpawnTimeEnd.GetUInt32();
+            }
+
+            questEnemey.ExpScheme = EnemyExpScheme.Tool;
+            if (enemy.TryGetProperty("exp_scheme", out JsonElement jExpScheme))
+            {
+                if (!Enum.TryParse(jExpScheme.GetString(), true, out EnemyExpScheme expScheme))
+                {
+                    questEnemey.ExpScheme = expScheme;
+                }
             }
         }
 

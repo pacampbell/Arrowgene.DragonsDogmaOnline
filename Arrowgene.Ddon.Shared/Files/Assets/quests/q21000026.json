@@ -1,0 +1,180 @@
+{
+    "state_machine": "GenericStateMachine",
+    "type": "World",
+    "comment": "Door of Jewelry: Emerged Colossus",
+    "quest_id": 21000026,
+    "base_level": 60,
+    "minimum_item_rank": 0,
+    "discoverable": false,
+	"area_id": "HidellPlains",
+    "rewards": [
+        {
+            "type": "wallet",
+            "wallet_type": "Gold",
+            "amount": 1980
+        },
+        {
+            "type": "wallet",
+            "wallet_type": "RiftPoints",
+            "amount": 250
+        },
+        {
+            "type": "exp",
+            "amount": 9079
+        },
+        {
+            "type": "select",
+            "loot_pool": [
+                {
+                    "item_id": "HidellMedal",
+                    "num": 3
+                },
+                {
+                    "item_id": "AlimentExtractant",
+                    "num": 1
+                },
+                {
+                    "item_id": "SuperiorStrongGalaExtract",
+                    "num": 3
+                }
+            ]
+        }
+    ],
+    "enemy_groups" : [
+        {
+            "stage_id": {
+                "id": 406,
+                "group_id": 11
+            },
+            "enemies": [
+                {
+                    "comment": "Alchemized Harpy",
+                    "enemy_id": "0x010606",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic"
+                },
+                {
+                    "comment": "Alchemized Harpy",
+                    "enemy_id": "0x010606",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic"
+                },
+                {
+                    "comment": "Alchemized Harpy",
+                    "enemy_id": "0x010606",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic"
+                },
+                {
+                    "comment": "Alchemized Harpy",
+                    "enemy_id": "0x010606",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic"
+                },
+                {
+                    "comment": "Alchemy Eye (Hidden Treasure)",
+                    "enemy_id": "0x015420",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic",
+                    "named_enemy_params_id": 1121,
+                    "drop_items": [
+                        {
+                            "item_id": 11759,
+                            "item_min": 1,
+                            "item_max": 1,
+                            "quality": 1,
+                            "drop_chance": 0.3
+                        }
+                    ]
+                },
+                {
+                    "comment": "Alchemy Eye (Hidden Treasure)",
+                    "enemy_id": "0x015420",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic",
+                    "named_enemy_params_id": 1121,
+                    "drop_items": [
+                        {
+                            "item_id": 11759,
+                            "item_min": 1,
+                            "item_max": 1,
+                            "quality": 1,
+                            "drop_chance": 0.3
+                        }
+                    ]
+                },
+                {
+                    "comment": "Alchemy Eye (Hidden Treasure)",
+                    "enemy_id": "0x015420",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic",
+                    "named_enemy_params_id": 1121,
+                    "drop_items": [
+                        {
+                            "item_id": 11759,
+                            "item_min": 1,
+                            "item_max": 1,
+                            "quality": 1,
+                            "drop_chance": 0.3
+                        }
+                    ]
+                },
+                {
+                    "comment": "Goliath (Hidden Treasure)",
+                    "enemy_id": "0x015102",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic",
+                    "is_boss": true,
+                    "named_enemy_params_id": 1121,
+                    "drop_items": [
+                        {
+                            "item_id": 11759,
+                            "item_min": 1,
+                            "item_max": 1,
+                            "quality": 1,
+                            "drop_chance": 0.8
+                        }
+                    ]
+                },
+                {
+                    "comment": "Goliath (Hidden Treasure)",
+                    "enemy_id": "0x015102",
+                    "level": 60,
+                    "exp": 0,
+                    "exp_scheme": "Automatic",
+                    "is_boss": true,
+                    "named_enemy_params_id": 1121,
+                    "drop_items": [
+                        {
+                            "item_id": 11759,
+                            "item_min": 1,
+                            "item_max": 1,
+                            "quality": 1,
+                            "drop_chance": 0.8
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "type": "DiscoverEnemy",
+            "groups": [0]
+        },
+        {
+            "type": "KillGroup",
+            "announce_type": "Accept",
+            "reset_group": false,
+            "groups": [0]
+        }
+    ]
+}

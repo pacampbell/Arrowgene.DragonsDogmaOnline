@@ -47,26 +47,26 @@
                 "group_id": 4,
                 "sub_group_id": 0,
                 "layer_no": 0
-                
+
             },
-                "placement_type": "manual",
+            "placement_type": "manual",
             "enemies": [
                 {
                     "enemy_id": "0x015304",
                     "level": 55,
                     "start_think_tbl_no": 1,
-		            "named_enemy_params_id": 54,
+                    "named_enemy_params_id": 54,
                     "exp": 19700,
                     "is_boss": true,
                     "index": 15,
                     "drop_items": [
                         {
-                        "item_id": 7823,
-                        "item_min": 1,
-                        "item_max": 3,
-                        "quality": 1,
-                        "drop_chance": 0.9
-                      }
+                            "item_id": 7823,
+                            "item_min": 1,
+                            "item_max": 3,
+                            "quality": 1,
+                            "drop_chance": 0.9
+                        }
                     ]
                 }
             ]
