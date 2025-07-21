@@ -718,6 +718,11 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
             /// Opens the gate to Epitaph Road: Feryana Wilderness
             /// </summary>
             public static QuestFlagInfo EpitaphRoadFeryanaWilderness { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3520, QuestId.Q70031001);
+
+            /// <summary>
+            /// Opens the door to Lookout Harbor.
+            /// </summary>
+            public static QuestFlagInfo LookoutHarbor { get; private set; } = QuestFlagInfo.WorldManageQuestFlag(3403, QuestId.Q70030001);
         }
 
         public static class NpcFunctions
