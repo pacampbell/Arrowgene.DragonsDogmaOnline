@@ -1,11 +1,7 @@
 using Arrowgene.Buffers;
 using Arrowgene.Ddon.Shared.Entity.Structure;
 using Arrowgene.Ddon.Shared.Network;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Arrowgene.Ddon.Shared.Entity.PacketStructure
 {
@@ -13,12 +9,7 @@ namespace Arrowgene.Ddon.Shared.Entity.PacketStructure
     {
         public override PacketId Id => PacketId.S2C_QUEST_GET_CYCLE_CONTENTS_NEWS_LIST_RES;
 
-        public S2CQuestGetCycleContentsNewsListRes()
-        {
-            CycleContentsNewsList = new();
-        }
-
-        public List<CDataCycleContentsNews> CycleContentsNewsList { get; set; }
+        public List<CDataCycleContentsNews> CycleContentsNewsList { get; set; } = new();
 
         public class Serializer : PacketEntitySerializer<S2CQuestGetCycleContentsNewsListRes>
         {

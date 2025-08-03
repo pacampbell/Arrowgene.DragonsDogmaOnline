@@ -57,6 +57,7 @@ namespace Arrowgene.Ddon.Shared.Asset
         public uint NewsImageId { get; set; }
         public ushort BaseLevel { get; set; }
         public byte MinimumItemRank { get; set; }
+        public byte SituationLevel { get; set; } = 1;
         public bool Enabled { get; set; }
         public bool OverrideEnemySpawn { get; set; }
         public bool EnableCancel { get; set; }
@@ -72,6 +73,7 @@ namespace Arrowgene.Ddon.Shared.Asset
         public List<QuestRewardItem> RepeatClearRewardItems;
         public List<QuestWalletReward> RepeatClearRewardCurrency;
         public List<QuestPointReward> RepeatClearPointRewards;
+        public List<(uint Rank, uint Points)> RankingTiers;
         public List<QuestOrderCondition> OrderConditions;
         public bool ResetPlayerAfterQuest { get; set; }
         public List<QuestLayoutFlag> QuestLayoutFlags { get; set; }
@@ -96,6 +98,7 @@ namespace Arrowgene.Ddon.Shared.Asset
             RepeatClearRewardItems = new List<QuestRewardItem>();
             RepeatClearRewardCurrency = new List<QuestWalletReward>();
             RepeatClearPointRewards = new List<QuestPointReward>();
+            RankingTiers = new List<(uint Rank, uint Points)>();
             QuestLayoutFlags = new List<QuestLayoutFlag>();
             QuestLayoutSetInfoFlags = new List<QuestLayoutFlagSetInfo>();
             EnemyGroups = new Dictionary<uint, QuestEnemyGroup>();

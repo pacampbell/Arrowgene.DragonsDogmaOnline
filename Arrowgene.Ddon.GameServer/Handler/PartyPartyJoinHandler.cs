@@ -31,7 +31,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                 ?? throw new ResponseErrorException(ErrorCode.ERROR_CODE_PARTY_LEADER_ABSENCE);
 
             res.ContentNumber = party.ContentId;
-            if (BoardManager.BoardIdIsExm(party.ContentId))
+            if (BoardManager.BoardIdIsExm(party.ContentId) || BoardManager.BoardIdIsWarMission(party.ContentId))
             {
                 Server.CharacterManager.UpdateOnlineStatus(client, client.Character, OnlineStatus.Contents);
             }

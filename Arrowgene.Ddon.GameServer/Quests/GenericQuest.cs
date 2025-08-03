@@ -33,6 +33,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
 
             quest.BaseLevel = questAsset.BaseLevel;
             quest.MinimumItemRank = questAsset.MinimumItemRank;
+            quest.SituationLevel = questAsset.SituationLevel;
             quest.NextQuestId = questAsset.NextQuestId;
             quest.QuestLayoutFlagSetInfo = questAsset.QuestLayoutSetInfoFlags;
             quest.QuestLayoutFlags = questAsset.QuestLayoutFlags;
@@ -46,6 +47,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
             quest.QuestOrderBackgroundImage = questAsset.QuestOrderBackgroundImage;
             quest.IsImportant = questAsset.IsImportant;
             quest.AdventureGuideCategory = questAsset.AdventureGuideCategory;
+            quest.RankingTiers = questAsset.RankingTiers;
 
             quest.LightQuestDetail = questAsset.LightQuestDetail;
             quest.Enabled = questAsset.Enabled;

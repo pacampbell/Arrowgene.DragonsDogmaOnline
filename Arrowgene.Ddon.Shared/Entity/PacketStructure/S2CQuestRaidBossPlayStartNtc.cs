@@ -1,12 +1,6 @@
 using Arrowgene.Buffers;
 using Arrowgene.Ddon.Shared.Entity.Structure;
 using Arrowgene.Ddon.Shared.Network;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Arrowgene.Ddon.Shared.Entity.PacketStructure
 {
@@ -14,13 +8,7 @@ namespace Arrowgene.Ddon.Shared.Entity.PacketStructure
     {
         public PacketId Id => PacketId.S2C_QUEST_RAID_BOSS_PLAY_START_NTC;
 
-        public S2CQuestRaidBossPlayStartNtc()
-        {
-            RaidBossPlayStartData = new CDataRaidBossPlayStartData();
-        }
-
-        public CDataRaidBossPlayStartData RaidBossPlayStartData {  get; set; }
-
+        public CDataRaidBossPlayStartData RaidBossPlayStartData { get; set; } = new();
 
         public class Serializer : PacketEntitySerializer<S2CQuestRaidBossPlayStartNtc>
         {

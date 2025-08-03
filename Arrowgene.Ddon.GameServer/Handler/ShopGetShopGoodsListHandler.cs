@@ -18,6 +18,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
             client.Character.LastEnteredShopId = request.ShopId;
 
+            client.Character.LastEnteredShopId = request.ShopId;
             return client.InstanceShopManager.GetAssets(request.ShopId);
         }
 

@@ -17,14 +17,14 @@ namespace Arrowgene.Ddon.Shared.Entity.Structure
         public uint TotalPoint { get; set; }
         public uint PlayNum { get; set; }
         public bool IsCreateRanking { get; set; }
-        public List<CDataQuestEnemyInfo> EnemyInfo { get; set; } = [];
-        public List<CDataCycleContentsUnk> Unk0 { get; set; } = [];
-        public DateTimeOffset UnkOffset0 { get; set; }
-        public DateTimeOffset UnkOffset1 { get; set; }
-        public DateTimeOffset UnkOffset2 { get; set; }
-        public DateTimeOffset UnkOffset3 { get; set; }
-        public DateTimeOffset UnkOffset4 { get; set; }
-        public DateTimeOffset UnkOffset5 { get; set; }
+        public List<CDataQuestEnemyInfo> QuestEnemyInfoList { get; set; } = new();
+        public List<CDataCycleContentsNewsUnk> Unk0List { get; set; } = new();
+        public DateTimeOffset ProgressStart { get; set; } // Progress Start
+        public DateTimeOffset ProgressEnd { get; set; } // Progress end
+        public DateTimeOffset ResultAnalysisStart { get; set; } // Result Analysis Start
+        public DateTimeOffset ResultAnalysisEnd { get; set; } // Result Analysis End
+        public DateTimeOffset RewardDistributionStart { get; set; } // Reward Distribution Start
+        public DateTimeOffset RewardDistributionEnd { get; set; } // Reward Distribution End
 
         public class Serializer : EntitySerializer<CDataCycleContentsNews>
         {
@@ -41,14 +41,14 @@ namespace Arrowgene.Ddon.Shared.Entity.Structure
                 WriteUInt32(buffer, obj.TotalPoint);
                 WriteUInt32(buffer, obj.PlayNum);
                 WriteBool(buffer, obj.IsCreateRanking);
-                WriteEntityList(buffer, obj.EnemyInfo);
-                WriteEntityList(buffer, obj.Unk0);
-                WriteInt64(buffer, obj.UnkOffset0.ToUnixTimeSeconds());
-                WriteInt64(buffer, obj.UnkOffset1.ToUnixTimeSeconds());
-                WriteInt64(buffer, obj.UnkOffset2.ToUnixTimeSeconds());
-                WriteInt64(buffer, obj.UnkOffset3.ToUnixTimeSeconds());
-                WriteInt64(buffer, obj.UnkOffset4.ToUnixTimeSeconds());
-                WriteInt64(buffer, obj.UnkOffset5.ToUnixTimeSeconds());
+                WriteEntityList(buffer, obj.QuestEnemyInfoList);
+                WriteEntityList(buffer, obj.Unk0List);
+                WriteInt64(buffer, obj.ProgressStart.ToUnixTimeSeconds());
+                WriteInt64(buffer, obj.ProgressEnd.ToUnixTimeSeconds());
+                WriteInt64(buffer, obj.ResultAnalysisStart.ToUnixTimeSeconds());
+                WriteInt64(buffer, obj.ResultAnalysisEnd.ToUnixTimeSeconds());
+                WriteInt64(buffer, obj.RewardDistributionStart.ToUnixTimeSeconds());
+                WriteInt64(buffer, obj.RewardDistributionEnd.ToUnixTimeSeconds());
             }
 
             public override CDataCycleContentsNews Read(IBuffer buffer)
@@ -65,14 +65,14 @@ namespace Arrowgene.Ddon.Shared.Entity.Structure
                 obj.TotalPoint = ReadUInt32(buffer);
                 obj.PlayNum = ReadUInt32(buffer);
                 obj.IsCreateRanking = ReadBool(buffer);
-                obj.EnemyInfo = ReadEntityList<CDataQuestEnemyInfo>(buffer);
-                obj.Unk0 = ReadEntityList<CDataCycleContentsUnk>(buffer);
-                obj.UnkOffset0 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
-                obj.UnkOffset1 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
-                obj.UnkOffset2 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
-                obj.UnkOffset3 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
-                obj.UnkOffset4 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
-                obj.UnkOffset5 = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.QuestEnemyInfoList = ReadEntityList<CDataQuestEnemyInfo>(buffer);
+                obj.Unk0List = ReadEntityList<CDataCycleContentsNewsUnk>(buffer);
+                obj.ProgressStart = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.ProgressEnd = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.ResultAnalysisStart = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.ResultAnalysisEnd = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.RewardDistributionStart = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
+                obj.RewardDistributionEnd = DateTimeOffset.FromUnixTimeSeconds(ReadInt64(buffer));
                 return obj;
             }
         }

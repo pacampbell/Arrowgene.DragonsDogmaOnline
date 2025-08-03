@@ -21,5 +21,6 @@ namespace Arrowgene.Ddon.Shared.Model.Quest
         public uint Group {  get; set; }
         public List<CDataCommonU32> QuestPhaseGroupIdList { get; set; }
         public QuestLootDistribution LootDistribution { get; set; }
+        public QuestContentType ContentType { get; set; } = QuestContentType.ExtremeMission;
     }
 }

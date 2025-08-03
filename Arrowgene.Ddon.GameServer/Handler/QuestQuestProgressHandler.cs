@@ -39,6 +39,11 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
             if (quest == null)
             {
+                if (questScheduleId == 366036)
+                {
+                    Logger.Info("Found the War Mission");
+                }
+
                 // Tell the quest state machine that for these static quest packets
                 // these processes are terminated
                 res.QuestProcessState.Add(new CDataQuestProcessState()

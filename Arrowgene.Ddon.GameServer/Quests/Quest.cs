@@ -15,7 +15,6 @@ using Arrowgene.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace Arrowgene.Ddon.GameServer.Quests
@@ -80,6 +79,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
         public uint NewsImageId { get; set; }
         public uint BaseLevel { get; set; }
         public ushort MinimumItemRank { get; set; }
+        public byte SituationLevel { get; set; } = 1;
         public QuestId NextQuestId { get; protected set; }
         public bool ResetPlayerAfterQuest { get; protected set; }
         public bool SaveWorkAsStep { get; protected set; }
@@ -112,6 +112,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
         public bool EnableCancel { get; protected set; }
         public DateTimeOffset DistributionStart { get; protected set; }
         public DateTimeOffset DistributionEnd { get; protected set; }
+        public List<(uint Rank, uint Points)> RankingTiers { get; protected set; }
 
         public bool IsPersonal { get
             {
@@ -193,6 +194,7 @@ namespace Arrowgene.Ddon.GameServer.Quests
             LightQuestDetail = new CDataLightQuestDetail();
             ContentsRelease = new HashSet<QuestUnlock>();
             WorldManageUnlocks = new Dictionary<QuestId, List<QuestFlagInfo>>();
+            RankingTiers = new List<(uint Rank, uint Points)>();
         }
 
         /// <summary>
@@ -653,6 +655,24 @@ namespace Arrowgene.Ddon.GameServer.Quests
             return result;
         }
 
+        public virtual CDataQuestContentsSituationInfoDetail ToCDataQuestContentsSituationInfoDetail()
+        {
+            return new()
+            {
+                QuestId = QuestId,
+                QuestScheduleId = QuestScheduleId,
+                BaseLevel = BaseLevel,
+                ContentJoinItemRank = MinimumItemRank,
+                ClearTimePointBonus = 100,
+                QuestOrderConditionParamList = GetQuestOrderConditions(),
+                DpRanksList = RankingTiers.Select(r => new CDataCommonPair<uint>
+                {
+                    ValueA = r.Rank,
+                    ValueB = r.Points
+                }).ToList()
+            };
+        }
+
         public void ClearAllRewards()
         {
             ItemRewards.Clear();
@@ -891,18 +911,33 @@ namespace Arrowgene.Ddon.GameServer.Quests
             };
         }
 
-        public virtual CDataRaidBossPlayStartData ToCDataRaidBossPlayStartData(uint step = 0)
+        public virtual CDataCycleContentsPlayStartData ToCDataCycleContentsPlayStartData(uint CycleContentsScheduleId, uint step = 0)
         {
-            return new CDataRaidBossPlayStartData()
+            return new CDataCycleContentsPlayStartData()
             {
-                CommonData = ToCDataContentsPlayStartData(step),
-                ClearTimePointBonusList = new List<CDataClearTimePointBonus>()
+                CycleContentsScheduleId = CycleContentsScheduleId,
+                KeyId = 0,
+                QuestScheduleId = QuestScheduleId,
+                QuestId = QuestId,
+                BaseLevel = BaseLevel,
+                StartPos = MissionParams.StartPos,
+                QuestProcessStateList = GetProcessState(step, out uint announceNoCount),
+                QuestEnemyInfoList = EnemyGroups.Values.SelectMany(group => group.Enemies.Select(enemy => new CDataQuestEnemyInfo()
                 {
-                    new CDataClearTimePointBonus() {Ratio = 1, Seconds = 100}
-                },
-                RaidBossEnemyParam = new CDataRaidBossEnemyParam()
+                    GroupId = enemy.UINameId,
+                    Unk0 = 0, // Seemingly always 0 in the pcaps
+                    Lv = enemy.Lv,
+                    IsPartyRecommend = enemy.IsBossGauge
+                }))
+                .ToList(),
+                QuestLayoutFlagSetInfoList = QuestLayoutFlagSetInfo.Select(x => x.AsCDataQuestLayoutFlagSetInfo()).ToList(),
+                Unk0List =
                 {
-                    RaidBossId = 1
+                    new() 
+                    {
+                        ValueA = 0,
+                        ValueB = 0
+                    }
                 }
             };
         }

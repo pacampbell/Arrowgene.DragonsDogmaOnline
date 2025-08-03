@@ -20,6 +20,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
             RepeatClearRewardItems = new List<QuestRewardItem>();
             RepeatClearWalletRewards = new List<QuestWalletReward>();
             RepeatClearPointRewards = new List<QuestPointReward>();
+            RankingTiers = new List<(uint Rank, uint Points)>();
             EnemyGroups = new Dictionary<uint, QuestEnemyGroup>();
             MissionParams = new QuestMissionParams();
             QuestLayoutSetInfoSetList = new List<QuestLayoutFlagSetInfo>();
@@ -68,6 +69,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
         public abstract ushort RecommendedLevel { get; }
         public abstract byte MinimumItemRank { get; }
         public abstract bool IsDiscoverable { get; }
+        public virtual byte SituationLevel { get; } = 1;
         public virtual bool? OverrideEnemySpawn { get; } = null;
         public virtual bool? EnableCancel { get; protected set; } = null;
         public virtual bool ResetPlayerAfterQuest { get; } = false;
@@ -82,6 +84,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
         protected List<QuestRewardItem> RepeatClearRewardItems { get; set; }
         protected List<QuestWalletReward> RepeatClearWalletRewards { get; set; }
         protected List<QuestPointReward> RepeatClearPointRewards { get; set; }
+        protected List<(uint Rank, uint Points)> RankingTiers { get; set; }
         protected Dictionary<uint, QuestEnemyGroup> EnemyGroups { get; set; }
         protected List<QuestLayoutFlagSetInfo> QuestLayoutSetInfoSetList { get; set; }
         protected QuestMissionParams MissionParams { get; set; }
@@ -167,6 +170,11 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
         public void AddPointReward(PointType pointType, uint amount)
         {
             PointRewards.Add(QuestPointReward.Create(pointType, amount));
+        }
+
+        public void AddRankTier(uint rank, uint points)
+        {
+            RankingTiers.Add((rank, points));
         }
 
         public void AddWalletReward(WalletType walletType, uint amount)
@@ -346,6 +354,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
             var assetData = new QuestAssetData()
             {
                 BaseLevel = RecommendedLevel,
+                SituationLevel = SituationLevel,
                 Discoverable = IsDiscoverable,
                 Enabled = Enabled,
                 EnemyGroups = EnemyGroups,
@@ -369,6 +378,7 @@ namespace Arrowgene.Ddon.GameServer.Scripting.Interfaces
                 RepeatClearRewardItems = RepeatClearRewardItems,
                 RepeatClearRewardCurrency = RepeatClearWalletRewards,
                 RepeatClearPointRewards = RepeatClearPointRewards,
+                RankingTiers = RankingTiers,
                 StageLayoutId = StageInfo.AsStageLayoutId(0, 0),
                 ResetPlayerAfterQuest = ResetPlayerAfterQuest,
                 MissionParams = MissionParams,

@@ -69,5 +69,10 @@ namespace Arrowgene.Ddon.Shared
         {
             return (((uint)questId) >= 50000000) && (((uint)questId) < 60000000);
         }
+
+        public static bool IsWarMission(QuestId questId)
+        {
+            return (((uint)questId) >= 90000000) && (((uint)questId) < 100000000);
+        }
     }
 }

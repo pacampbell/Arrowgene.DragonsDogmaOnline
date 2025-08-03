@@ -537,10 +537,19 @@ namespace Arrowgene.Ddon.GameServer.Characters
 
         private static readonly ulong BOARD_CATEGORY_RECRUITMENT = 0x9_00000000;
         private static readonly ulong BOARD_CATEGORY_EXM         = 0x4_00000000;
+        private static readonly ulong BOARD_CATEGORY_WM          = 0x0_90000000;
 
         public static ulong QuestScheduleIdToExmBoardId(uint questScheduleId)
         {
             return (ulong)(questScheduleId | BOARD_CATEGORY_EXM);
+        }
+
+        public static bool BoardIdIsWarMission(ulong boardId)
+        {
+            // War Missions are passed by quest schedule id
+            // When the 4th byte is 0x90, this quest is a War Mission
+            // The bottom 4 bytes are the QuestId/QuestScheduleId
+            return (BOARD_CATEGORY_WM & boardId) > 0;
         }
 
         public static bool BoardIdIsExm(ulong boardId)
@@ -575,6 +584,11 @@ namespace Arrowgene.Ddon.GameServer.Characters
         }
 
         public static uint GetQuestIdFromBoardId(ulong boardId)
+        {
+            return GetValueFromBoardId(boardId);
+        }
+
+        public static uint GetQuestScheduleIdFromBoardId(ulong boardId)
         {
             return GetValueFromBoardId(boardId);
         }

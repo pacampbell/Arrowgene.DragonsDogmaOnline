@@ -23,10 +23,15 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
             if (BoardManager.BoardIdIsExm(request.BoardId))
             {
-                // Override some defaults using JSON config
                 var quest = QuestManager.GetQuestByBoardId(request.BoardId);
                 data.EntryItem.Param.MinEntryNum = (ushort)quest.MissionParams.MinimumMembers;
                 data.EntryItem.Param.MaxEntryNum = (ushort)quest.MissionParams.MaximumMembers;
+            }
+            else if (BoardManager.BoardIdIsWarMission(request.BoardId))
+            {
+                var quest = QuestManager.GetQuestByScheduleId(BoardManager.GetQuestScheduleIdFromBoardId(request.BoardId));
+                data.EntryItem.Param.MinEntryNum = 1; // (ushort)quest.MissionParams.MinimumMembers;
+                data.EntryItem.Param.MaxEntryNum = 8; // (ushort)quest.MissionParams.MaximumMembers;
             }
             else if (BoardManager.BoardIdIsRecruitmentCategory(request.BoardId))
             {
