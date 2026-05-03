@@ -38,7 +38,7 @@ public class ChatCommand : IChatCommand
                         GroupId = groupId
                     },
                     PosId = posId,
-                    State = (SoulOrdealOmState)value
+                    State = (SeasonDungeonOmState)value
                 };
                 client.Party.SendToAll(ntc);
             }
@@ -54,7 +54,7 @@ public class ChatCommand : IChatCommand
                             GroupId = i
                         },
                         PosId = posId,
-                        State = (SoulOrdealOmState)value
+                        State = (SeasonDungeonOmState)value
                     };
                     client.Party.SendToAll(ntc);
                 }

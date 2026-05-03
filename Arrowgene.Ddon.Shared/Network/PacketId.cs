@@ -767,10 +767,10 @@ namespace Arrowgene.Ddon.Shared.Network
         public static readonly PacketId S2C_QUEST_11_92_16_NTC = new PacketId(11, 92, 16, "S2C_QUEST_11_92_16_NTC", ServerType.Game, PacketSource.Server); // Mission Started
         public static readonly PacketId S2C_QUEST_11_93_16_NTC = new PacketId(11, 93, 16, "S2C_QUEST_11_93_16_NTC", ServerType.Game, PacketSource.Server); // Mission completed
         public static readonly PacketId S2C_QUEST_11_94_16_NTC = new PacketId(11, 94, 16, "S2C_QUEST_11_94_16_NTC", ServerType.Game, PacketSource.Server); // Mission All completed
-        public static readonly PacketId S2C_QUEST_11_95_16_NTC = new PacketId(11, 95, 16, "S2C_QUEST_11_95_16_NTC", ServerType.Game, PacketSource.Server);
-        public static readonly PacketId S2C_QUEST_11_96_16_NTC = new PacketId(11, 96, 16, "S2C_QUEST_11_96_16_NTC", ServerType.Game, PacketSource.Server);
-        public static readonly PacketId S2C_QUEST_11_97_16_NTC = new PacketId(11, 97, 16, "S2C_QUEST_11_97_16_NTC", ServerType.Game, PacketSource.Server);
-        public static readonly PacketId S2C_QUEST_11_98_16_NTC = new PacketId(11, 98, 16, "S2C_QUEST_11_98_16_NTC", ServerType.Game, PacketSource.Server);
+        public static readonly PacketId S2C_QUEST_FORT_DEFENSE_NTC = new PacketId(11, 95, 16, "S2C_QUEST_FORT_DEFENSE_NTC", ServerType.Game, PacketSource.Server, "S2C_QUEST_11_95_16_NTC");
+        public static readonly PacketId S2C_QUEST_11_96_16_NTC = new PacketId(11, 96, 16, "S2C_QUEST_11_96_16_NTC", ServerType.Game, PacketSource.Server); // Empty
+        public static readonly PacketId S2C_QUEST_11_97_16_NTC = new PacketId(11, 97, 16, "S2C_QUEST_11_97_16_NTC", ServerType.Game, PacketSource.Server); // S2C_RAID_BOSS_NOTICE or S2C_PAWN_DUNGEON_NOTICE?
+        public static readonly PacketId S2C_QUEST_11_98_16_NTC = new PacketId(11, 98, 16, "S2C_QUEST_11_98_16_NTC", ServerType.Game, PacketSource.Server); // S2C_CYCLE_CONTENTS_END_NOTICE
         public static readonly PacketId S2C_QUEST_11_99_16_NTC = new PacketId(11, 99, 16, "S2C_QUEST_11_99_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_QUEST_11_100_16_NTC = new PacketId(11, 100, 16, "S2C_QUEST_11_100_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_QUEST_TIME_GAIN_QUEST_PLAY_START_NTC = new PacketId(11, 101, 16, "S2C_QUEST_TIME_GAIN_QUEST_PLAY_START_NTC", ServerType.Game, PacketSource.Server, "S2C_QUEST_11_101_16_NTC"); // <syslog_quest_progress_failed>
@@ -787,7 +787,7 @@ namespace Arrowgene.Ddon.Shared.Network
         public static readonly PacketId S2C_QUEST_11_112_16_NTC = new PacketId(11, 112, 16, "S2C_QUEST_11_112_16_NTC", ServerType.Game, PacketSource.Server); // Nothing?
         public static readonly PacketId S2C_QUEST_11_113_16_NTC = new PacketId(11, 113, 16, "S2C_QUEST_11_113_16_NTC", ServerType.Game, PacketSource.Server); // Nothing?
         public static readonly PacketId S2C_QUEST_RAID_BOSS_PLAY_START_NTC = new PacketId(11, 114, 16, "S2C_QUEST_RAID_BOSS_PLAY_START_NTC", ServerType.Game, PacketSource.Server, "S2C_QUEST_11_114_16_NTC"); // <syslog_quest_progress_failed> (CPacket_S2C_RAID_BOSS_PLAY_START_NOTICE)
-        public static readonly PacketId S2C_QUEST_11_115_16_NTC = new PacketId(11, 115, 16, "S2C_QUEST_11_115_16_NTC", ServerType.Game, PacketSource.Server);
+        public static readonly PacketId S2C_QUEST_RAID_BOSS_POINT_NTC = new PacketId(11, 115, 16, "S2C_QUEST_RAID_BOSS_POINT_NTC", ServerType.Game, PacketSource.Server, "S2C_QUEST_11_115_16_NTC");
         public static readonly PacketId S2C_QUEST_11_116_16_NTC = new PacketId(11, 116, 16, "S2C_QUEST_11_116_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_QUEST_11_117_16_NTC = new PacketId(11, 117, 16, "S2C_QUEST_11_117_16_NTC", ServerType.Game, PacketSource.Server);
         public static readonly PacketId S2C_QUEST_11_118_16_NTC = new PacketId(11, 118, 16, "S2C_QUEST_11_118_16_NTC", ServerType.Game, PacketSource.Server);
@@ -2699,7 +2699,7 @@ namespace Arrowgene.Ddon.Shared.Network
             AddPacketIdEntry(packetIds, S2C_QUEST_11_92_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_93_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_94_16_NTC);
-            AddPacketIdEntry(packetIds, S2C_QUEST_11_95_16_NTC);
+            AddPacketIdEntry(packetIds, S2C_QUEST_FORT_DEFENSE_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_96_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_97_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_98_16_NTC);
@@ -2719,7 +2719,7 @@ namespace Arrowgene.Ddon.Shared.Network
             AddPacketIdEntry(packetIds, S2C_QUEST_11_112_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_113_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_RAID_BOSS_PLAY_START_NTC);
-            AddPacketIdEntry(packetIds, S2C_QUEST_11_115_16_NTC);
+            AddPacketIdEntry(packetIds, S2C_QUEST_RAID_BOSS_POINT_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_116_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_117_16_NTC);
             AddPacketIdEntry(packetIds, S2C_QUEST_11_118_16_NTC);

@@ -159,6 +159,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new CDataCycleContentsRank.Serializer());
             Create(new CDataCycleContentsUnk.Serializer());
             Create(new CDataCycleContentsNoticeData.Serializer());
+            Create(new CDataCycleContentsNoticeDataEx.Serializer());
             Create(new CDataQuestContentsSituationInfoDetail.Serializer());
             Create(new CDataQuestContentsSituationInfo.Serializer());
             Create(new CDataCycleContentsNewsUnk.Serializer());
@@ -1655,6 +1656,10 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new S2CQuestGetCycleContentsSituationInfoListRes.Serializer());
             Create(new S2CQuestCycleContentsPlayStartRes.Serializer());
             Create(new S2CQuestFortDefensePlayStartNtc.Serializer());
+            Create(new S2CQuestFortDefenseExtraSituationNtc.Serializer());
+            Create(new S2CQuestWarMissionGaugeZeroNtc.Serializer());
+            Create(new S2CQuestWarMissionNtc.Serializer());
+            Create(new S2CQuestCycleContentsPointNtc.Serializer());
             Create(new S2CQuestGetCycleContentsPointListRes.Serializer());
             Create(new S2CQuestGetEndContentsGroupRes.Serializer());
             Create(new S2CQuestGetEndContentsRecruitListRes.Serializer());
@@ -1712,6 +1717,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new S2CQuestQuestProgressRes.Serializer());
             Create(new S2CQuestQuestProgressWorkSaveNtc.Serializer());
             Create(new S2CQuestRaidBossPlayStartNtc.Serializer());
+            Create(new S2CQuestRaidBossPointNtc.Serializer());
             Create(new S2CQuestSendLeaderQuestOrderConditionInfoNtc.Serializer());
             Create(new S2CQuestSendLeaderQuestOrderConditionInfoRes.Serializer());
             Create(new S2CQuestSendLeaderWaitOrderQuestListNtc.Serializer());
@@ -1726,7 +1732,7 @@ namespace Arrowgene.Ddon.Shared.Entity
             Create(new S2CQuestAddPackageQuestPointRes.Serializer());
             Create(new S2CQuestGetPackageQuestInfoDetailRes.Serializer());
             Create(new S2CQuestGetPackageQuestInfoRes.Serializer());
-            Create(new S2CQuestCycleContentsUnkNtc.Serializer());
+            Create(new S2CQuestFortDefenseNtc.Serializer());
             Create(new S2CQuestCycleContentsEnableNtc.Serializer());
 
             Create(new S2CRankingBoardListRes.Serializer());

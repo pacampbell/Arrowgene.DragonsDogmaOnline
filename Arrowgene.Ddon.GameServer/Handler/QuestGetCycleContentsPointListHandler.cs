@@ -1,8 +1,10 @@
+using Arrowgene.Ddon.GameServer.Characters;
 using Arrowgene.Ddon.Server;
 using Arrowgene.Ddon.Shared.Entity.PacketStructure;
 using Arrowgene.Ddon.Shared.Entity.Structure;
+using Arrowgene.Ddon.Shared.Model.Quest;
 using Arrowgene.Logging;
-using System.Drawing;
+using System.Collections.Generic;
 
 namespace Arrowgene.Ddon.GameServer.Handler
 {
@@ -16,6 +18,9 @@ namespace Arrowgene.Ddon.GameServer.Handler
 
         public override S2CQuestGetCycleContentsPointListRes Handle(GameClient client, C2SQuestGetCycleContentsPointListReq request)
         {
+            var ntc = QuestGetCycleContentsStateListHandler.BuildFortDefenseNtc(Server, request.CycleContentsScheduleId);
+            if (ntc != null) client.Send(ntc);
+
             return new S2CQuestGetCycleContentsPointListRes()
             {
                 CycleContentsScheduleId = request.CycleContentsScheduleId,

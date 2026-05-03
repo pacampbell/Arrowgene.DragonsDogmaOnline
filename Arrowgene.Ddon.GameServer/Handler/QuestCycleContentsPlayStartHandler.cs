@@ -49,6 +49,7 @@ namespace Arrowgene.Ddon.GameServer.Handler
                                 WarSituationLevel = quest.SituationLevel
                             };
                             client.Party.SendToAll(ntc);
+                            client.Party.SendToAll(new S2CQuestFortDefenseExtraSituationNtc() { SituationValue = 0 });
                         }
                         break;
                     case QuestContentType.BossRaid:
